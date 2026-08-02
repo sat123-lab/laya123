@@ -1,0 +1,420 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Exact colors sampled from current site logo */
+    --laya-navy: #3A8BC4;
+    --laya-teal: #55B1EB;
+    --laya-cyan: #56B0EA;
+    --laya-purple: #8E7DDD;
+    --laya-purple-dark: #8F7CDC;
+    --laya-header: #55B1EB;
+    --laya-bg-left: #55B1EB;
+    --laya-bg-right: #8E7DDD;
+    --laya-hero-gradient: linear-gradient(135deg, #55B1EB 0%, #56B0EA 35%, #8E7DDD 70%, #8F7CDC 100%);
+
+    --background: 244 35% 96%;
+    --foreground: 244 30% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 244 30% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 244 30% 15%;
+
+    --primary: 248 28% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 199 72% 68%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 244 20% 94%;
+    --muted-foreground: 244 15% 40%;
+
+    --accent: 199 72% 68%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 244 20% 88%;
+    --input: 244 20% 88%;
+    --ring: 248 28% 60%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 248 28% 45%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 199 72% 68%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 248 28% 50%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 248 22% 55%;
+    --sidebar-ring: 199 72% 68%;
+
+    /* Custom tokens */
+    --hero-overlay: 248 28% 35%;
+    --section-alt: 244 30% 97%;
+    --nature-gradient: var(--laya-hero-gradient);
+    --warm-gradient: linear-gradient(135deg, var(--laya-teal), var(--laya-purple-dark));
+    --earth-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04));
+
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  .dark {
+    --background: 150 20% 6%;
+    --foreground: 40 20% 92%;
+    --card: 150 20% 9%;
+    --card-foreground: 40 20% 92%;
+    --popover: 150 20% 9%;
+    --popover-foreground: 40 20% 92%;
+    --primary: 201 76% 54%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 30 35% 45%;
+    --secondary-foreground: 40 20% 97%;
+    --muted: 150 15% 15%;
+    --muted-foreground: 40 10% 60%;
+    --accent: 199 90% 72%;
+    --accent-foreground: 40 20% 97%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 150 15% 18%;
+    --input: 150 15% 18%;
+    --ring: 201 76% 54%;
+    --sidebar-background: 201 52% 22%;
+    --sidebar-foreground: 40 20% 90%;
+    --sidebar-primary: 199 90% 72%;
+    --sidebar-primary-foreground: 40 20% 97%;
+    --sidebar-accent: 201 52% 28%;
+    --sidebar-accent-foreground: 40 20% 90%;
+    --sidebar-border: 201 46% 30%;
+    --sidebar-ring: 199 90% 72%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply text-foreground antialiased;
+    background: transparent;
+    overflow-x: hidden;
+  }
+
+  html {
+    background: #48A9F5;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply px-4 py-16 md:px-8 md:py-24 lg:px-16;
+  }
+
+  .container-narrow {
+    @apply mx-auto max-w-6xl;
+  }
+
+  .text-gradient-primary {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--nature-gradient);
+  }
+
+  .text-gradient-accent {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--warm-gradient);
+  }
+
+  .bg-nature-gradient {
+    background-image: var(--nature-gradient);
+  }
+
+  .bg-warm-gradient {
+    background-image: var(--warm-gradient);
+  }
+
+  .bg-earth-gradient {
+    background-image: var(--earth-gradient);
+  }
+
+  .bg-section-alt {
+    background-color: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+  }
+
+  .laya-site-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+    background-color: transparent;
+  }
+
+  .laya-section {
+    @apply section-padding relative;
+  }
+
+  .laya-panel {
+    @apply rounded-[2rem] md:rounded-[2.5rem] border border-white/30 bg-white/15 backdrop-blur-md overflow-hidden shadow-xl text-white;
+  }
+
+  .laya-panel h1,
+  .laya-panel h2,
+  .laya-panel p,
+  .laya-panel span {
+    color: #ffffff !important;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  /* White feature cards inside glass panels keep dark, accent-colored text */
+  .laya-panel .laya-feature-card,
+  .laya-panel .laya-feature-card h3,
+  .laya-panel .laya-feature-card p,
+  .laya-panel .laya-feature-card span {
+    text-shadow: none !important;
+  }
+
+  .laya-panel .laya-feature-card {
+    color: hsl(244 30% 15%) !important;
+  }
+
+  .laya-panel .laya-feature-card h3.laya-feature-card__title--purple {
+    color: var(--laya-purple) !important;
+  }
+
+  .laya-panel .laya-feature-card h3.laya-feature-card__title--cyan {
+    color: var(--laya-cyan) !important;
+  }
+
+  .laya-panel .laya-feature-card p {
+    color: rgb(75 85 99) !important;
+  }
+
+  .laya-panel-solid {
+    @apply rounded-[2rem] md:rounded-[2.5rem] border border-white/40 bg-white/95 backdrop-blur-md overflow-hidden shadow-xl;
+  }
+
+  .laya-feature-card {
+    @apply rounded-2xl bg-white p-6 shadow-lg border border-white/60;
+  }
+
+  .laya-label {
+    @apply text-xs font-heading font-semibold uppercase tracking-[0.2em] text-white;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
+  }
+
+  .laya-label::after {
+    content: "";
+    display: block;
+    width: 2.5rem;
+    height: 2px;
+    margin-top: 0.5rem;
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: 9999px;
+  }
+
+  /* On brand bg: default to readable white text */
+  main {
+    color: #ffffff;
+  }
+
+  main h1,
+  main h2,
+  main h3,
+  main h4,
+  main p,
+  main span,
+  main li,
+  main label,
+  main a {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+  }
+
+  /* Solid white / card surfaces keep dark readable text */
+  main .laya-panel-solid,
+  main .laya-feature-card,
+  main .bg-card,
+  main .bg-background,
+  main [class*="bg-white"] {
+    color: hsl(244 30% 15%);
+  }
+
+  main .laya-panel-solid h1,
+  main .laya-panel-solid h2,
+  main .laya-panel-solid h3,
+  main .laya-panel-solid h4,
+  main .laya-panel-solid p,
+  main .laya-panel-solid span,
+  main .laya-panel-solid li,
+  main .laya-panel-solid a,
+  main .laya-feature-card h1,
+  main .laya-feature-card h2,
+  main .laya-feature-card p,
+  main .laya-feature-card span,
+  main .bg-card h1,
+  main .bg-card h2,
+  main .bg-card h3,
+  main .bg-card p,
+  main .bg-card span,
+  main .bg-card li,
+  main .bg-card a,
+  main [class*="bg-white"] h1,
+  main [class*="bg-white"] h2,
+  main [class*="bg-white"] h3,
+  main [class*="bg-white"] p,
+  main [class*="bg-white"] span,
+  main [class*="bg-white"] li,
+  main [class*="bg-white"] a {
+    text-shadow: none;
+    color: inherit;
+  }
+
+  main .laya-panel-solid .text-muted-foreground,
+  main .laya-feature-card .text-muted-foreground,
+  main .bg-card .text-muted-foreground,
+  main [class*="bg-white"] .text-muted-foreground,
+  main .laya-feature-card .text-gray-600,
+  main .laya-panel .laya-feature-card .text-gray-600 {
+    color: hsl(244 12% 40%) !important;
+  }
+
+  main .laya-panel-solid .text-foreground,
+  main .laya-feature-card .text-foreground,
+  main .bg-card .text-foreground,
+  main [class*="bg-white"] .text-foreground {
+    color: hsl(244 30% 15%) !important;
+  }
+
+  /* Utility text on brand bg */
+  main .text-foreground {
+    color: #ffffff !important;
+  }
+
+  main .text-muted-foreground {
+    color: rgba(255, 255, 255, 0.88) !important;
+  }
+
+  main .laya-feature-card h3.laya-feature-card__title--purple {
+    color: var(--laya-purple) !important;
+  }
+
+  main .laya-feature-card h3.laya-feature-card__title--cyan {
+    color: var(--laya-cyan) !important;
+  }
+
+  /* Let global curved background show through all pages */
+  main .bg-background,
+  main .bg-gray-50,
+  main .bg-slate-50,
+  main .bg-muted,
+  main section.bg-background,
+  main section.bg-nature-gradient,
+  main section.bg-earth-gradient,
+  main section.bg-section-alt,
+  main section[class*="bg-gradient-to"],
+  main div.bg-background,
+  main div.bg-white,
+  main div[class*="bg-gradient-to"] {
+    background: transparent !important;
+  }
+
+  /* Subtle glass bar — curve still visible underneath */
+  main section.bg-primary {
+    background-color: rgba(109, 95, 154, 0.35) !important;
+    backdrop-filter: blur(10px);
+  }
+
+  main .bg-white:not(.laya-panel-solid):not(.laya-feature-card):not(.bg-card) {
+    background-color: transparent !important;
+  }
+
+  main .laya-panel-solid.bg-white,
+  main .bg-card,
+  main .laya-feature-card {
+    background-color: rgba(255, 255, 255, 0.96) !important;
+  }
+
+  main .bg-primary {
+    background-color: rgba(109, 95, 154, 0.92) !important;
+    backdrop-filter: blur(10px);
+  }
+
+  main .bg-primary .text-primary-foreground,
+  main .bg-primary p,
+  main .bg-primary h2,
+  main .bg-primary h3,
+  main .bg-primary span {
+    color: #ffffff !important;
+    text-shadow: none;
+  }
+}
+
+@layer utilities {
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+  }
+
+  .animate-logo-float {
+    animation: logoFloat 3.2s ease-in-out infinite;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes logoFloat {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-4px);
+    }
+  }
+}
+
+/* Mobile sticky header for logo */
+@media (max-width: 1023px) {
+  header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 9999 !important;
+  }
+  
+  /* Add padding to main content to account for fixed headers */
+  main, .main-content, #root > div:not(header):not([class*="motion"]) {
+    padding-top: 0 !important;
+  }
+  
+  /* Prevent horizontal overflow on mobile */
+  html, body, #root {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  /* Ensure containers don't overflow */
+  .max-w-7xl {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
