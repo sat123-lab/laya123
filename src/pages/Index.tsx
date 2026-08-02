@@ -57,28 +57,28 @@ const publicationCards = [
 
 const HeroSection = () => {
   return (
-    <section className="laya-section pt-28 lg:pt-36 !pb-2 md:!pb-4">
+    <section className="laya-section max-lg:!pt-5 pt-8 sm:pt-10 lg:pt-10 !pb-8 md:!pb-6">
       <div className="container-narrow mx-auto">
-        <div className="grid lg:grid-cols-[minmax(0,0.95fr)_minmax(340px,1.05fr)] gap-10 lg:gap-12 items-center min-h-[52vh]">
+        <div className="grid lg:grid-cols-[minmax(0,0.95fr)_minmax(340px,1.05fr)] gap-7 lg:gap-12 items-center">
           <motion.div
-            initial={{ opacity: 0, x: -28 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-col justify-center pb-6 md:pb-10 lg:pb-0"
+            className="flex flex-col justify-center order-1"
           >
-            <p className="laya-label mb-5">Resource Center for Adivasis</p>
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-[3.4rem] font-bold text-white mb-5 leading-[1.12] max-w-xl">
+            <p className="laya-label mb-4 lg:mb-5">Resource Center for Adivasis</p>
+            <h1 className="font-heading text-[1.85rem] leading-[1.15] sm:text-4xl md:text-5xl lg:text-[3.4rem] font-bold text-white mb-4 lg:mb-5 max-w-xl">
               Standing with Adivasi Communities
             </h1>
-            <p className="text-base md:text-lg text-white/85 font-body leading-relaxed max-w-md mb-7">
+            <p className="text-[0.95rem] sm:text-base md:text-lg text-white/85 font-body leading-relaxed max-w-md mb-6 lg:mb-7">
               For nearly four decades, LAYA has walked alongside indigenous communities in the Eastern
               Ghats — advancing rights, livelihoods, health, and lasting self-reliance.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-3 mb-8">
+            <div className="flex flex-col xs:flex-row sm:flex-row gap-3 mb-2 lg:mb-8 w-full sm:w-auto">
               <Button
                 size="lg"
-                className="bg-white text-[var(--laya-purple)] hover:bg-white/90 rounded-xl font-semibold px-7"
+                className="w-full sm:w-auto bg-white text-[var(--laya-purple)] hover:bg-white/90 rounded-xl font-semibold px-7"
                 asChild
               >
                 <Link to="/about">
@@ -88,14 +88,15 @@ const HeroSection = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-2 border-white/70 bg-transparent text-white hover:bg-white/10 rounded-xl px-7"
+                className="w-full sm:w-auto border-2 border-white/70 bg-transparent text-white hover:bg-white/10 rounded-xl px-7"
                 asChild
               >
                 <Link to="/programs">What We Do</Link>
               </Button>
             </div>
 
-            <div className="flex flex-wrap gap-x-8 gap-y-4 border-t border-white/25 pt-6 max-w-xl">
+            {/* Desktop stats under copy */}
+            <div className="hidden lg:flex flex-wrap gap-x-8 gap-y-4 pt-6 max-w-xl">
               {heroHighlights.map((item) => (
                 <div key={item.label} className="min-w-[6.5rem]">
                   <p className="font-heading text-2xl md:text-[1.75rem] font-bold text-white leading-none">
@@ -109,31 +110,47 @@ const HeroSection = () => {
             </div>
           </motion.div>
 
+          {/* Image — visible on mobile + desktop */}
           <motion.div
-            initial={{ opacity: 0, x: 28 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.65, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="hidden lg:block"
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.65, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+            className="order-2 w-full"
           >
             <Link to="/about" className="group block">
-              <div className="relative overflow-hidden rounded-[1.75rem] border-4 border-white/90 shadow-2xl">
+              <div className="relative overflow-hidden rounded-2xl sm:rounded-[1.75rem] border-[3px] sm:border-4 border-white/90 shadow-2xl">
                 <img
                   src={homeHeroImage}
                   alt="Training programme on Social Entitlements"
                   loading="eager"
-                  className="w-full h-[480px] lg:h-[560px] object-cover object-center transition-transform duration-700 group-hover:scale-[1.03]"
+                  className="w-full h-[220px] sm:h-[320px] md:h-[400px] lg:h-[560px] object-cover object-center transition-transform duration-700 group-hover:scale-[1.03]"
                 />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 p-5 flex items-end justify-between gap-3">
-                  <p className="text-sm font-heading font-semibold text-white leading-snug max-w-[16rem]">
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-3.5 sm:p-5 flex items-end justify-between gap-3">
+                  <p className="text-xs sm:text-sm font-heading font-semibold text-white leading-snug max-w-[14rem] sm:max-w-[16rem]">
                     Training programme on Social Entitlements
                   </p>
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white text-[var(--laya-purple)] transition-transform duration-300 group-hover:translate-x-0.5">
+                  <span className="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-full bg-white text-[var(--laya-purple)] transition-transform duration-300 group-hover:translate-x-0.5">
                     <ArrowRight className="h-4 w-4" />
                   </span>
                 </div>
               </div>
             </Link>
+          </motion.div>
+
+          {/* Mobile stats under image */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, delay: 0.15 }}
+            className="order-3 lg:hidden grid grid-cols-3 gap-2 rounded-2xl border border-white/25 bg-white/10 p-3 backdrop-blur-sm"
+          >
+            {heroHighlights.map((item) => (
+              <div key={item.label} className="text-center px-1">
+                <p className="font-heading text-xl font-bold text-white leading-none">{item.value}</p>
+                <p className="mt-1.5 text-[10px] text-white/80 font-body leading-snug">{item.label}</p>
+              </div>
+            ))}
           </motion.div>
         </div>
       </div>

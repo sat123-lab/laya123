@@ -37,7 +37,7 @@ const Gallery = () => {
       </Helmet>
 
       <MainLayout>
-        <section className="laya-section pt-28 lg:pt-36 pb-24 md:pb-32">
+        <section className="laya-section pt-8 lg:pt-10 pb-24 md:pb-32">
           <div className="container-narrow mx-auto">
             <div className="laya-panel-solid overflow-hidden">
               <div className="border-b border-border/80 px-6 py-8 md:px-12 md:py-10">

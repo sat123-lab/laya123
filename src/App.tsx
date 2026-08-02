@@ -10,16 +10,13 @@ import PageTransition from "@/components/PageTransition";
 import Loader from "@/components/Loader";
 import SiteBackground from "@/components/SiteBackground";
 import layaLogo from "@/assets/laya-logo.png";
+import { scrollPageToTop } from "@/lib/scrollRoot";
 
 const RouteScrollToTop = () => {
   const { pathname, search, hash } = useLocation();
 
   useEffect(() => {
-    const scrollTop = () => {
-      window.scrollTo(0, 0);
-      document.documentElement.scrollTop = 0;
-      document.body.scrollTop = 0;
-    };
+    const scrollTop = () => scrollPageToTop();
 
     scrollTop();
     // Re-run after route transition / lazy load so scroll isn't lost

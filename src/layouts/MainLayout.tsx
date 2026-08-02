@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ScrollToTopButton from "@/components/ScrollToTop";
+import { LAYA_SCROLL_ID } from "@/lib/scrollRoot";
 
 interface MainLayoutProps {
   children: ReactNode;
@@ -10,10 +11,13 @@ interface MainLayoutProps {
 
 const MainLayout = ({ children }: MainLayoutProps) => {
   return (
-    <div className="min-h-screen flex flex-col relative">
+    <div className="h-dvh flex flex-col relative overflow-hidden">
       <Header />
-      <main className="flex-1 pt-0 lg:pt-16 relative z-[1]">{children}</main>
-      <Footer />
+      {/* Hero/content start below logo header; scroll from under that invisible line */}
+      <div id={LAYA_SCROLL_ID} className="laya-scroll-root">
+        <main>{children}</main>
+        <Footer />
+      </div>
       <WhatsAppButton />
       <ScrollToTopButton />
     </div>

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { MapPin, Phone, Mail, ExternalLink } from "lucide-react";
 import { referenceLogo } from "@/assets/referenceAssets";
+import { scrollPageToTop } from "@/lib/scrollRoot";
 
 const Footer = () => {
   return (
@@ -35,11 +36,7 @@ const Footer = () => {
                 <li key={link.path}>
                   <Link
                     to={link.path}
-                    onClick={() => {
-                      window.scrollTo(0, 0);
-                      document.documentElement.scrollTop = 0;
-                      document.body.scrollTop = 0;
-                    }}
+                    onClick={() => scrollPageToTop()}
                     className="text-xs lg:text-sm opacity-70 hover:opacity-100 transition-opacity font-body"
                   >
                     {link.label}

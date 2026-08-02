@@ -16,6 +16,7 @@
     --laya-bg-left: #55B1EB;
     --laya-bg-right: #8E7DDD;
     --laya-hero-gradient: linear-gradient(135deg, #55B1EB 0%, #56B0EA 35%, #8E7DDD 70%, #8F7CDC 100%);
+    --laya-chrome-height: 5rem;
 
     --background: 244 35% 96%;
     --foreground: 244 30% 15%;
@@ -158,6 +159,21 @@
     pointer-events: none;
     overflow: hidden;
     background-color: transparent;
+  }
+
+  /* Scroll clipped below sticky header (chrome height from Header ResizeObserver) */
+  .laya-scroll-root {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: var(--laya-chrome-height);
+    z-index: 1;
+    min-height: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
   }
 
   .laya-section {

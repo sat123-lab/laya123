@@ -26,7 +26,7 @@ const PageHero = ({
 }: PageHeroProps) => {
   if (centered || !image) {
     return (
-      <section className="laya-section pt-28 lg:pt-36 pb-8 md:pb-12">
+      <section className="laya-section pt-8 lg:pt-10 pb-8 md:pb-12">
         <div className="container-narrow mx-auto text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             {label && <p className="laya-label mb-6 mx-auto w-fit">{label}</p>}
@@ -48,7 +48,7 @@ const PageHero = ({
   }
 
   return (
-    <section className="laya-section pt-28 lg:pt-36 pb-8 md:pb-12">
+    <section className="laya-section pt-8 lg:pt-10 pb-8 md:pb-12">
       <div className="container-narrow mx-auto">
         <div className="grid lg:grid-cols-2 gap-10 items-center min-h-[40vh]">
           <motion.div

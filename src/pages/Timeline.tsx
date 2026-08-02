@@ -126,7 +126,7 @@ const Donate = () => {
         />
       </Helmet>
       <MainLayout>
-        <section className="laya-section pt-28 lg:pt-36 pb-8 md:pb-12">
+        <section className="laya-section pt-8 lg:pt-10 pb-8 md:pb-12">
           <div className="container-narrow mx-auto">
             <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
               <motion.div
